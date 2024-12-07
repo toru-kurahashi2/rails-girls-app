@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema[7.1].define(version: 2024_12_02_063942) do
   create_table "comments", force: :cascade do |t|
-    t.string "user_name"
+    t.string "ユーザー名"
     t.text "body"
     t.integer "idea_id", null: false
     t.datetime "created_at", null: false
@@ -21,9 +21,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_02_063942) do
   end
 
   create_table "ideas", force: :cascade do |t|
-    t.string "name"
-    t.text "description"
-    t.string "picture"
+    t.string "名前"
+    t.text "説明"
+    t.string "画像"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
