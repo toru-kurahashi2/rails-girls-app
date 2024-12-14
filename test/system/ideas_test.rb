@@ -10,30 +10,30 @@ class IdeasTest < ApplicationSystemTestCase
     assert_selector "h1", text: "Ideas"
   end
 
-  test "should create idea" do
+  test "投稿を作成する" do
     visit ideas_url
     click_on "新規投稿"
 
-    fill_in "Description", with: @idea.description
-    fill_in "Name", with: @idea.name
-    fill_in "Picture", with: @idea.picture
-    click_on "Create Idea"
+    fill_in "説明", with: @idea.description
+    fill_in "名前", with: @idea.name
+    fill_in "写真", with: @idea.picture
+    click_on "投稿を作成"
 
-    assert_text "Idea was successfully created"
-    click_on "Back"
+    assert_text "正常に投稿されました"
+    click_on "戻る"
   end
 
-  test "should update Idea" do
+  test "投稿を修正する" do
     visit idea_url(@idea)
-    click_on "Edit this idea", match: :first
+    click_on "この投稿を修正する", match: :first
 
-    fill_in "Description", with: @idea.description
-    fill_in "Name", with: @idea.name
-    fill_in "Picture", with: @idea.picture
-    click_on "Update Idea"
+    fill_in "説明", with: @idea.description
+    fill_in "名前", with: @idea.name
+    fill_in "写真", with: @idea.picture
+    click_on "投稿の修正"
 
-    assert_text "Idea was successfully updated"
-    click_on "Back"
+    assert_text "正常に投稿されました"
+    click_on "戻る"
   end
 
   test "should destroy Idea" do
