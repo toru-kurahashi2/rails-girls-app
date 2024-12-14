@@ -1,0 +1,71 @@
+/* General form styling */
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  /* Error message styling */
+  div[style="color: red"] {
+    border: 1px solid red;
+    border-radius: 5px;
+    padding: 1rem;
+    background-color: #ffe6e6;
+    color: #d9534f;
+  }
+  
+  h2 {
+    margin: 0 0 0.5rem 0;
+  }
+  
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+  
+  li {
+    margin: 0.5rem 0;
+  }
+  
+  /* Label styling */
+  label {
+    display: block;
+    margin: 0.5rem 0 0.2rem 0;
+    font-weight: bold;
+  }
+  
+  /* Input field styling */
+  input[type="text"],
+  textarea,
+  input[type="file"] {
+    width: 100%;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  /* Submit button styling */
+  input[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    margin: 1rem 0;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  
