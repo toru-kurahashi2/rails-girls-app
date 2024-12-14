@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'search/search'
   resources :microposts
   resources :users
   root "ideas#index"

@@ -4,6 +4,11 @@ class IdeasController < ApplicationController
   # GET /ideas or /ideas.json
   def index
     @ideas = Idea.all
+    if params[:query].present? 
+      @ideas = Idea.search(params[:query])
+    else 
+      @ideas = Idea.all
+    end
   end
 
   # GET /ideas/1 or /ideas/1.json
@@ -59,6 +64,11 @@ class IdeasController < ApplicationController
       format.html { redirect_to ideas_url, notice: "Idea was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  # GET /ideas/serch
+  def search
+    @ideas=Idea.search(params[:keyword])
   end
 
   private
