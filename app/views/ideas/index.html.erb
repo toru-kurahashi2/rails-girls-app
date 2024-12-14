@@ -8,11 +8,17 @@
 <p style="color: green"><%= notice %></p>
 
 
-<h1>投稿</h1>
-<%= link_to "新規投稿", new_idea_path, class: "btn btn-primary mb-3" %>
+
+<!--<%= link_to "新規投稿", new_idea_path, class: "btn btn-primary mb-3" %>
+-->
 
 <div class="list-group w-auto">
+  <!--<a href="https://via.placeholder.com/1200x800" data-lightbox="gallery" data-title="Sample Image 3">
+    <img src="https://via.placeholder.com/300" alt="Sample Image 3" class="img-thumbnail">
+  </a>-->
   <% @ideas.each do |idea| %>
-    <%= render idea %>
+     <%= render idea %>
   <% end %>
 </div>
+
+<p style="text-align:right"><%= link_to image_tag("投稿.jpg", alt: "新規投稿"), new_idea_path%></p>
