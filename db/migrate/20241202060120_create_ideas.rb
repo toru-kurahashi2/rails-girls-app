@@ -1,6 +1,6 @@
 class CreateIdeas < ActiveRecord::Migration[7.1]
   def change
-    create_table :ideas do |t|
+    create_table :idea do |t|
       t.string :name
       t.text :description
       t.string :picture

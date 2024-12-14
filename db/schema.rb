@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_12_02_063942) do
+ActiveRecord::Schema[7.1].define(version: 2024_12_14_015115) do
   create_table "comments", force: :cascade do |t|
-    t.string "user_name"
+    t.string "ユーザー名"
     t.text "body"
     t.integer "idea_id", null: false
     t.datetime "created_at", null: false
@@ -20,13 +20,28 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_02_063942) do
     t.index ["idea_id"], name: "index_comments_on_idea_id"
   end
 
-  create_table "ideas", force: :cascade do |t|
-    t.string "name"
-    t.text "description"
-    t.string "picture"
+  create_table "投稿", force: :cascade do |t|
+    t.string "名前"
+    t.text "説明"
+    t.string "画像"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+  end
+
+  create_table "microposts", force: :cascade do |t|
+    t.text "content"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "comments", "ideas"
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "comments", "投稿"
 end
