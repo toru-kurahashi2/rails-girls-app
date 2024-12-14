@@ -1,0 +1,18 @@
+<!-- app/views/ideas/search.html.erb -->
+<center><%= form_with url: search_search_path, method: :get, local: true do %>
+  <%= text_field_tag :query, params[:query] %>
+  <%= submit_tag "検索" %>
+<% end %>
+<h1><%= !@ideas.empty? ? "検索結果" : "" %></h1>
+<p style="color: green"><%= notice %></p>
+</center>
+<div class="list-group w-auto">
+    <ul>
+        <div class="d-flex flex-column gap-2 w-100">
+             <% @ideas.each do |idea| %>
+                <%= render idea %>
+            <% end %>
+        </div>
+    </ul>
+</div>
+

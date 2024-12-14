@@ -4,6 +4,11 @@ class IdeasController < ApplicationController
   # GET /ideas or /ideas.json
   def index
     @ideas = Idea.all
+    if params[:query].present? 
+      @ideas = Idea.search(params[:query])
+    else 
+      @ideas = Idea.all
+    end
   end
 
   # GET /ideas/1 or /ideas/1.json
@@ -14,10 +19,13 @@ class IdeasController < ApplicationController
   # GET /ideas/new
   def new
     @idea = Idea.new
+    @users = User.all
   end
 
   # GET /ideas/1/edit
   def edit
+    @idea = Idea.find(params[:id])
+    @users = User.all
   end
 
   # POST /ideas or /ideas.json
@@ -50,12 +58,18 @@ class IdeasController < ApplicationController
 
   # DELETE /ideas/1 or /ideas/1.json
   def destroy
+    @idea.update(user_id: nil) 
     @idea.destroy!
 
     respond_to do |format|
       format.html { redirect_to ideas_url, notice: "Idea was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  # GET /ideas/serch
+  def search
+    @ideas=Idea.search(params[:keyword])
   end
 
   private
@@ -66,6 +80,6 @@ class IdeasController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def idea_params
-      params.require(:idea).permit(:name, :description, :picture)
+      params.require(:idea).permit(:name, :description, :picture,:user_id)
     end
 end

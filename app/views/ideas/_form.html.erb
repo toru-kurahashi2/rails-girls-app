@@ -1,5 +1,6 @@
 <%= form_with(model: idea) do |form| %>
   <% if idea.errors.any? %>
+ 
     <div style="color: red">
       <h2><%= pluralize(idea.errors.count, "error") %> prohibited this idea from being saved:</h2>
 
@@ -10,23 +11,29 @@
       </ul>
     </div>
   <% end %>
+  
+ <div>
+  ユーザ名<br>
+  <%= form.collection_select :user_id,users, :id, :name, prompt:"select a User"%>
+  </div>
 
   <div>
-    <%= form.label :name, style: "display: block" %>
+    品物名
     <%= form.text_field :name %>
   </div>
 
   <div>
-    <%= form.label :description, style: "display: block" %>
+    説明
     <%= form.text_area :description %>
   </div>
 
   <div>
-    <%= form.label :picture, style: "display: block" %>
+    画像
     <%= form.file_field :picture %>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit "送信" %>
   </div>
+  
 <% end %>

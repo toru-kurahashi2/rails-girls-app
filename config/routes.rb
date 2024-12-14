@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  root "pages#homepage"
+  get 'search/search'
+  resources :microposts
+  resources :users
+  root "ideas#index"
   get 'pages/about'
   resources :ideas do
     resources :comments
