@@ -15,7 +15,7 @@
   <%= button_to "投稿の破棄", @idea, method: :delete, class: "btn btn-danger", form: { data: { turbo_confirm: "よろしいですか？" } } %>
 </div>
 
-<h2>Comments</h2>
+<h2>コメント</h2>
 <% if @comments.any? %>
   <% @comments.each do |comment| %>
     <div>
@@ -28,5 +28,5 @@
   <p>No comments found.</p>
 <% end %>
 
-<h2>Add a new comment</h2>
+<h2>新規コメントの追加</h2>
 <%= render partial: "comments/form", locals: { idea: @idea } %>
