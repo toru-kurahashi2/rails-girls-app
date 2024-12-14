@@ -7,7 +7,7 @@ class IdeasTest < ApplicationSystemTestCase
 
   test "visiting the index" do
     visit ideas_url
-    assert_selector "h1", text: "Ideas"
+    assert_selector "h1", text: "投稿"
   end
 
   test "投稿を作成する" do
