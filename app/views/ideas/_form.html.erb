@@ -1,5 +1,6 @@
 <%= form_with(model: idea) do |form| %>
   <% if idea.errors.any? %>
+ 
     <div style="color: red">
       <h2><%= pluralize(idea.errors.count, "error") %> prohibited this idea from being saved:</h2>
 
@@ -10,6 +11,11 @@
       </ul>
     </div>
   <% end %>
+  
+ <div>
+  <%= form.label :user_id,"User"%>
+  <%= form.collection_select :user_id,users, :id, :name, prompt:"select a User"%>
+  </div>
 
   <div>
     <%= form.label :name, "名前": "display: block" %>
