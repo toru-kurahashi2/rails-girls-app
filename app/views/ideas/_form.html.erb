@@ -13,22 +13,22 @@
   <% end %>
   
  <div>
-  <%= form.label :user_id,"User"%>
+  ユーザ名<br>
   <%= form.collection_select :user_id,users, :id, :name, prompt:"select a User"%>
   </div>
 
   <div>
-    <%= form.label :name, "名前": "display: block" %>
+    名前<br>
     <%= form.text_field :name %>
   </div>
 
   <div>
-    <%= form.label :description, "説明": "display: block" %>
+    説明<br>
     <%= form.text_area :description %>
   </div>
 
   <div>
-    <%= form.label :picture, "画像": "display: block" %>
+    画像<br>
     <%= form.file_field :picture %>
   </div>
 
