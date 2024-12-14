@@ -1,9 +1,9 @@
 class CreateIdeas < ActiveRecord::Migration[7.1]
   def change
-    create_table :投稿 do |t|
-      t.string :名前
-      t.text :説明
-      t.string :写真
+    create_table :idea do |t|
+      t.string :name
+      t.text :description
+      t.string :picture
 
       t.timestamps
     end
