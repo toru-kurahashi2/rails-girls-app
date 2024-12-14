@@ -3,7 +3,7 @@ class SearchController < ApplicationController
     if params[:query].present? 
       @ideas = Idea.search(params[:query]) 
     else 
-      @ideas = Idea.all
+      @ideas = []
     end
   end
 end

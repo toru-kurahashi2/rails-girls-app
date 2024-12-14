@@ -24,7 +24,7 @@ class IdeasController < ApplicationController
 
   # GET /ideas/1/edit
   def edit
-    @idea = Idea.find(parms[:id])
+    @idea = Idea.find(params[:id])
     @users = User.all
   end
 
@@ -58,6 +58,7 @@ class IdeasController < ApplicationController
 
   # DELETE /ideas/1 or /ideas/1.json
   def destroy
+    @idea.update(user_id: nil) 
     @idea.destroy!
 
     respond_to do |format|

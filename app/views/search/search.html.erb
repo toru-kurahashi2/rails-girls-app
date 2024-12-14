@@ -3,14 +3,16 @@
   <%= text_field_tag :query, params[:query] %>
   <%= submit_tag "検索" %>
 <% end %>
-
-
-<h1>検索結果</h1>
+<h1><%= !@ideas.empty? ? "検索結果" : "" %></h1>
+<p style="color: green"><%= notice %></p>
 </center>
-<ul>
-    <div class="list-group w-auto">
-        <% @ideas.each do |idea| %>
-            <li><%= idea.name %>: <%= idea.description %></li>
-        <% end %>
-    </div>
-</ul>
+<div class="list-group w-auto">
+    <ul>
+        <div class="d-flex flex-column gap-2 w-100">
+             <% @ideas.each do |idea| %>
+                <%= render idea %>
+            <% end %>
+        </div>
+    </ul>
+</div>
+
