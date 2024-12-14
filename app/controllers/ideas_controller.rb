@@ -14,10 +14,13 @@ class IdeasController < ApplicationController
   # GET /ideas/new
   def new
     @idea = Idea.new
+    @users = User.all
   end
 
   # GET /ideas/1/edit
   def edit
+    @idea = Idea.find(parms[:id])
+    @users = User.all
   end
 
   # POST /ideas or /ideas.json
@@ -66,6 +69,6 @@ class IdeasController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def idea_params
-      params.require(:idea).permit(:name, :description, :picture)
+      params.require(:idea).permit(:name, :description, :picture,:user_id)
     end
 end
