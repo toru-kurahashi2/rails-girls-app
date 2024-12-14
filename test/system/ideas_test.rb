@@ -12,7 +12,7 @@ class IdeasTest < ApplicationSystemTestCase
 
   test "should create idea" do
     visit ideas_url
-    click_on "New idea"
+    click_on "新規投稿"
 
     fill_in "Description", with: @idea.description
     fill_in "Name", with: @idea.name
